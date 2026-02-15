@@ -1,201 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milovan Marrder | Data & Applied Mathematics</title>
-    <meta name="description" content="Portfolio of Milovan Marrder. Bridging the gap between mathematical modeling, business strategy, and data engineering.">
-    
-    <!-- Google Fonts: Inter & JetBrains Mono (for code feel) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Milovan Marrder | Data & Applied Mathematics</title>
+  <meta name="description" content="Portfolio of Milovan Marrder. Mathematical modeling, business strategy, and data engineering for decision-making." />
+
+  <!-- Open Graph (mejora previews al compartir) -->
+  <meta property="og:title" content="Milovan Marrder | Data & Applied Mathematics" />
+  <meta property="og:description" content="Applying mathematical rigor to complex business problems. Strategy, Python engineering, and applied math." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/profile.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo">M.Marrder<span class="dot">.</span></a>
-            <div class="nav-links">
-                <a href="#philosophy">Philosophy</a>
-                <a href="#work">Projects</a>
-                <a href="#notes">Notes</a>
-                <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" class="btn-primary">
-                    Let's Connect <i data-lucide="arrow-up-right" class="icon-sm"></i>
-                </a>
-            </div>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="#" class="logo">M.Marrder<span class="dot">.</span></a>
+
+      <div class="nav-links">
+        <a href="#philosophy">Philosophy</a>
+        <a href="#work">Projects</a>
+        <a href="#notes">Notes</a>
+        <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" rel="noopener" class="btn-primary">
+          Let’s Connect <i data-lucide="arrow-up-right" class="icon-sm"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Photo -->
+        <div class="about-image-wrapper">
+          <img src="assets/profile.png" alt="Milovan Marrder" class="profile-img" />
+          <div class="mini-badges">
+            <span class="mini-badge"><i data-lucide="shield-check" class="icon-xs"></i> Confidential-by-design</span>
+            <span class="mini-badge"><i data-lucide="activity" class="icon-xs"></i> Healthcare + Ops</span>
+            <span class="mini-badge"><i data-lucide="sigma" class="icon-xs"></i> Applied Math</span>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <div class="container">
-            <div class="philosophy-layout">
-                <!-- Fotografía a la izquierda -->
-                <div class="about-image-wrapper">
-                    <img src="assets/profile.png" alt="Milovan Marrder" class="profile-img">
-                </div>
-                
-                <!-- Contenido del hero a la derecha -->
-                <div class="hero-content">
-                    <div class="code-badge">
-                        <span class="blink">></span> data_analyst = True
-                    </div>
-                    <h1>
-                        Applying <span class="highlight">Mathematical Rigor</span> to <br>
-                        Complex Business Problems.
-                    </h1>
-                    <p class="hero-subtitle">
-                        I don't just extract data; I model reality. <br>
-                        Combining <strong>Business Strategy</strong>, <strong>Python Engineering</strong>, and <strong>Applied Mathematics</strong> to drive decision-making in critical sectors.
-                    </p>
-                    <div class="hero-actions">
-                        <a href="#work" class="btn-secondary">Explore My Work</a>
-                        <a href="https://github.com/MilovanMarrder" target="_blank" class="social-link"><i data-lucide="github"></i></a>
-                        <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" class="social-link"><i data-lucide="linkedin"></i></a>
-                    </div>
-                </div>
+        <!-- Copy -->
+        <div class="hero-content">
+          <div class="code-badge">
+            <span class="blink">></span> analyst_engineer_math = True
+          </div>
+
+          <h1>
+            Applying <span class="highlight">Mathematical Rigor</span><br />
+            to Complex Business Decisions.
+          </h1>
+
+          <p class="hero-subtitle">
+            I don’t just extract data — I model systems. <br />
+            I combine <strong>business strategy</strong>, <strong>Python engineering</strong>, and <strong>applied mathematics</strong>
+            to improve operational decisions in high-stakes environments.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#work" class="btn-secondary">Explore My Work</a>
+
+            <!-- Optional: resume (si lo agregas) -->
+            <!-- <a href="assets/Milovan_Marrder_Resume.pdf" class="btn-ghost" target="_blank" rel="noopener">Download Resume</a> -->
+
+            <a href="https://github.com/MilovanMarrder" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+              <i data-lucide="github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+              <i data-lucide="linkedin"></i>
+            </a>
+          </div>
+
+          <div class="trust-row">
+            <div class="trust-item">
+              <span class="trust-k">Focus</span>
+              <span class="trust-v">BI • Data Engineering • Applied ML</span>
             </div>
+            <div class="trust-item">
+              <span class="trust-k">Strength</span>
+              <span class="trust-v">Operational analytics in 24/7 contexts</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-k">Practice</span>
+              <span class="trust-v">Reusable tooling + standardized reporting</span>
+            </div>
+          </div>
+
         </div>
-    </header>
+      </div>
+    </div>
+  </header>
 
-    <!-- Stack / Philosophy Section -->
-    <section id="philosophy" class="section">
-        <div class="container">
-            <div class="grid-3">
-                <div class="feature-card">
-                    <i data-lucide="brain-circuit" class="feature-icon"></i>
-                    <h3>Mathematical Foundation</h3>
-                    <p>Data without structure is noise. I use statistical modeling and logic to find signals where others see chaos.</p>
-                </div>
-                <div class="feature-card">
-                    <i data-lucide="briefcase" class="feature-icon"></i>
-                    <h3>Business First</h3>
-                    <p>Code is a tool, not the goal. My background in Business Admin ensures every analysis impacts the bottom line.</p>
-                </div>
-                <div class="feature-card">
-                    <i data-lucide="code-2" class="feature-icon"></i>
-                    <h3>Technical Craft</h3>
-                    <p>Building reusable libraries (ETL), optimizing SQL queries, and automating workflows for scalability.</p>
-                </div>
-            </div>
+  <!-- Philosophy -->
+  <section id="philosophy" class="section">
+    <div class="container">
+      <div class="grid-3">
+        <div class="feature-card">
+          <i data-lucide="brain-circuit" class="feature-icon"></i>
+          <h3>Mathematical Foundation</h3>
+          <p>Data without structure is noise. I use modeling, statistics, and logic to isolate signal under uncertainty.</p>
         </div>
-    </section>
 
-    <!-- Selected Projects -->
-    <section id="work" class="section bg-light">
-        <div class="container">
-            <div class="section-header">
-                <h2>Selected Work</h2>
-                <p>A mix of open-source tools and operational case studies.</p>
-            </div>
-
-            <div class="projects-grid">
-                
-                <!-- Project 1: mmarrder (Tooling) -->
-                <article class="project-card">
-                    <div class="card-header">
-                        <span class="tag">Python Library</span>
-                        <a href="https://github.com/MilovanMarrder/mmarrder" target="_blank" class="icon-link"><i data-lucide="github"></i></a>
-                    </div>
-                    <h3>mmarrder Toolkit</h3>
-                    <p class="project-desc">
-                        A personal Python library published on PyPI. It abstracts complex ETL processes and standardized reporting functions into simple method calls.
-                    </p>
-                    <div class="tech-stack">
-                        <span>Python</span><span>Pandas</span><span>Software Design</span>
-                    </div>
-                </article>
-
-                <!-- Project 2: Predictive Model (Math focus) -->
-                <article class="project-card">
-                    <div class="card-header">
-                        <span class="tag">Predictive Modeling</span>
-                        <i data-lucide="lock" class="icon-disabled" title="Proprietary Project"></i>
-                    </div>
-                    <h3>Risk Probability Model</h3>
-                    <p class="project-desc">
-                        Developed a logistic regression model to identify high-risk events in operational workflows (Healthcare context), reducing readmission costs.
-                    </p>
-                    <div class="tech-stack">
-                        <span>Statistics</span><span>Scikit-Learn</span><span>Optimization</span>
-                    </div>
-                </article>
-
-                <!-- Project 3: Data Engineering -->
-                <article class="project-card">
-                    <div class="card-header">
-                        <span class="tag">Data Engineering</span>
-                        <i data-lucide="database" class="icon-disabled"></i>
-                    </div>
-                    <h3>Unstructured Data Parsing</h3>
-                    <p class="project-desc">
-                        Built a custom NLP-based parser to transform free-text legacy logs into structured SQL tables for analytical dashboards.
-                    </p>
-                    <div class="tech-stack">
-                        <span>Regex</span><span>SQL</span><span>ETL Automation</span>
-                    </div>
-                </article>
-
-            </div>
+        <div class="feature-card">
+          <i data-lucide="briefcase" class="feature-icon"></i>
+          <h3>Business First</h3>
+          <p>Engineering is a means. Every model and dashboard is tied to decisions: efficiency, risk, and resource allocation.</p>
         </div>
-    </section>
 
-    <!-- Notes / Blog Section (NUEVO) -->
-    <section id="notes" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Applied Math Notes</h2>
-                <p>Explorations in concepts, algorithms, and continuous learning.</p>
-            </div>
-            
-            <div class="notes-list">
-                <!-- Note Placeholder -->
-                <div class="note-item">
-                    <span class="note-date">Coming Soon</span>
-                    <h3 class="note-title">The intersection of Calculus and Business optimization</h3>
-                    <p class="note-excerpt">Exploring how derivatives can identify inflection points in operational efficiency curves.</p>
-                    <span class="read-more">Read (Soon) →</span>
-                </div>
-                
-                <div class="note-item">
-                    <span class="note-date">Active Research</span>
-                    <h3 class="note-title">Why I built my own ETL library</h3>
-                    <p class="note-excerpt">A deep dive into the architecture of 'mmarrder' and the philosophy of automating repetitive data tasks.</p>
-                    <span class="read-more">Read (Soon) →</span>
-                </div>
-            </div>
+        <div class="feature-card">
+          <i data-lucide="code-2" class="feature-icon"></i>
+          <h3>Technical Craft</h3>
+          <p>Python ETL, SQL, automation, and clean interfaces — built for maintainability, auditability, and scale.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-flex">
-            <div class="footer-left">
-                <h4>Milovan Marrder</h4>
-                <p>Data Analyst | Mathematics Student</p>
-            </div>
-            <div class="footer-right">
-                <a href="https://github.com/MilovanMarrder">GitHub</a>
-                <a href="https://www.linkedin.com/in/milovanmarrder/">LinkedIn</a>
-                <a href="mailto:tu-email@gmail.com">Email</a>
-            </div>
-        </div>
-        <div class="container copyright">
-            <p>&copy; <span id="year"></span>. Built with clean code.</p>
-        </div>
-    </footer>
+  <!-- Projects -->
+  <section id="work" class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2>Selected Work</h2>
+        <p>Open-source tooling and case studies (with confidentiality preserved).</p>
+      </div>
 
-    <script src="script.js"></script>
-    <script>
-        lucide.createIcons();
-    </script>
+      <div class="projects-grid">
+
+        <!-- Public Anchor Project -->
+        <article class="project-card">
+          <div class="card-header">
+            <span class="tag">Applied ML</span>
+            <a href="https://github.com/MilovanMarrder/TODO-timeclock-rf" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub Repo">
+              <i data-lucide="github"></i>
+            </a>
+          </div>
+
+          <h3>Timeclock Punch Classifier (Random Forest)</h3>
+          <p class="project-desc">
+            Classifies time-clock punches as <strong>IN / OUT / ERROR</strong> and supports shift inference in <strong>24/7 rotating schedules</strong>.
+            Public version uses a synthetic dataset that preserves real-world complexity.
+          </p>
+
+          <div class="tech-stack">
+            <span>Random Forest</span><span>Feature Engineering</span><span>GroupKFold</span>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn-mini" href="notes/timeclock-rf-case-study.html">Case Study</a>
+            <a class="btn-mini btn-mini-ghost" href="https://github.com/MilovanMarrder/TODO-timeclock-rf" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <!-- Your library -->
+        <article class="project-card">
+          <div class="card-header">
+            <span class="tag">Python Library</span>
+            <a href="https://github.com/MilovanMarrder/mmarrder" target="_blank" rel="noopener" class="icon-link" aria-label="GitHub Repo">
+              <i data-lucide="github"></i>
+            </a>
+          </div>
+          <h3>mmarrder Toolkit</h3>
+          <p class="project-desc">
+            A personal Python library that standardizes ETL patterns and reporting utilities for reproducible analytics work.
+          </p>
+          <div class="tech-stack">
+            <span>Python</span><span>Pandas</span><span>Design</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn-mini btn-mini-ghost" href="https://github.com/MilovanMarrder/mmarrder" target="_blank" rel="noopener">Repo</a>
+          </div>
+        </article>
+
+        <!-- Proprietary but well framed -->
+        <article class="project-card">
+          <div class="card-header">
+            <span class="tag">Confidential</span>
+            <span class="lock-pill"><i data-lucide="lock" class="icon-xs"></i> Private</span>
+          </div>
+          <h3>Operational Risk Scoring</h3>
+          <p class="project-desc">
+            Designed a risk scoring approach to detect high-friction operational events. Focus: robust evaluation, bias checks,
+            and explainability under policy constraints.
+          </p>
+          <div class="tech-stack">
+            <span>Statistics</span><span>Calibration</span><span>Explainability</span>
+          </div>
+        </article>
+
+        <!-- Another private -->
+        <article class="project-card">
+          <div class="card-header">
+            <span class="tag">Data Engineering</span>
+            <span class="lock-pill"><i data-lucide="lock" class="icon-xs"></i> Private</span>
+          </div>
+          <h3>Unstructured Log Parsing → SQL</h3>
+          <p class="project-desc">
+            Built a parsing pipeline to convert free-text legacy logs into structured tables for analytics and governance.
+          </p>
+          <div class="tech-stack">
+            <span>Regex</span><span>SQL</span><span>ETL</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Notes -->
+  <section id="notes" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Applied Math Notes</h2>
+        <p>Short write-ups on modeling, algorithms, and how math becomes operational decisions.</p>
+      </div>
+
+      <div class="notes-list">
+
+        <a class="note-item" href="notes/timeclock-rf-case-study.html">
+          <span class="note-date">Case Study</span>
+          <h3 class="note-title">Random Forest for 24/7 Time-Clock Classification</h3>
+          <p class="note-excerpt">How to model sequences of punches, engineer features, avoid leakage, and evaluate by employee groups.</p>
+          <span class="read-more">Read →</span>
+        </a>
+
+        <a class="note-item" href="notes/calculus-ops-optimization.html">
+          <span class="note-date">Applied Calculus</span>
+          <h3 class="note-title">Derivatives for Operational Optimization</h3>
+          <p class="note-excerpt">Using marginal analysis to detect diminishing returns and identify decision-ready inflection points.</p>
+          <span class="read-more">Read →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-flex">
+      <div class="footer-left">
+        <h4>Milovan Marrder</h4>
+        <p>Data Analyst • Applied Math • Python Engineering</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/MilovanMarrder" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:milovanmarrder@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; <span id="year"></span>. Built with clean code.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

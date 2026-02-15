@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applied Calculus | Derivatives for Operational Optimization</title>
+  <meta name="description" content="How derivatives help detect diminishing returns and decision-ready inflection points in operations." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    .post { padding: 40px 0 80px; }
+    .content { max-width: 900px; }
+    .post-title { font-size: 2.4rem; line-height: 1.1; margin: 6px 0 10px; }
+    .post-subtitle { color: var(--text-muted); max-width: 860px; }
+    .content h2 { font-size: 1.5rem; margin: 34px 0 10px; }
+    .content p { color: var(--text-muted); margin-bottom: 14px; }
+    .callout {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 16px 18px;
+      background: #fff;
+      margin: 18px 0;
+    }
+    .formula {
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      background: #fff;
+      font-family: var(--font-code);
+      margin: 14px 0 18px;
+      color: var(--text-main);
+    }
+    .back-row { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="../index.html" class="logo">M.Marrder<span class="dot">.</span></a>
+      <div class="nav-links">
+        <a href="index.html">Notes</a>
+        <a href="../index.html#work">Projects</a>
+        <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" rel="noopener" class="btn-primary">
+          Let’s Connect <i data-lucide="arrow-up-right" class="icon-sm"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="post bg-light">
+    <div class="container content">
+
+      <div class="code-badge"><span class="blink">></span> applied_calculus = True</div>
+      <h1 class="post-title">Derivatives for Operational Optimization</h1>
+      <p class="post-subtitle">
+        A simple calculus lens for decision-making: use marginal analysis to spot diminishing returns and choose where investment stops being worth it.
+      </p>
+
+      <div class="callout">
+        <h3>Core idea</h3>
+        <p>
+          In operations, we often ask: “If I add one more unit of effort, how much do I gain?”
+          That’s exactly what the derivative represents: <strong>marginal benefit</strong>.
+        </p>
+      </div>
+
+      <h2>From intuition to a model</h2>
+      <p>
+        Suppose <strong>y = f(x)</strong> measures a valuable outcome (throughput, quality score, saved minutes),
+        and <strong>x</strong> is an investment (staff hours, budget, capacity, training time).
+      </p>
+
+      <div class="formula">
+        f'(x) = marginal benefit per additional unit of x
+      </div>
+
+      <p>
+        If <strong>f'(x)</strong> is high, additional investment yields strong improvement.
+        If <strong>f'(x)</strong> is small, you’re in diminishing returns territory.
+      </p>
+
+      <h2>Decision-ready rule</h2>
+      <p>
+        A practical decision rule is to stop investing when marginal benefit falls below marginal cost.
+      </p>
+
+      <div class="formula">
+        Stop when: f'(x) ≤ c
+      </div>
+
+      <p>
+        Where <strong>c</strong> is the cost per unit of investment (financial, time, complexity, risk).
+      </p>
+
+      <h2>What this looks like in real work</h2>
+      <p>
+        Even without a closed-form function, you can estimate marginal effects from data:
+      </p>
+      <ul style="margin-left: 18px; color: var(--text-muted);">
+        <li>Fit a curve (piecewise linear, polynomial, spline) to historical outcomes.</li>
+        <li>Compute numerical derivatives (finite differences).</li>
+        <li>Find the “knee” point where gains flatten.</li>
+      </ul>
+
+      <div class="callout">
+        <h3>Why this matters</h3>
+        <p>
+          This framing turns debates like “we need more capacity” into quantifiable questions:
+          “How much gain do we get per additional unit — and when does it stop being worth it?”
+        </p>
+      </div>
+
+      <h2>Next</h2>
+      <p>
+        In a future note I’ll show an example with a synthetic dataset + Python: fitting curves and detecting inflection points.
+      </p>
+
+      <div class="back-row">
+        <a class="btn-mini btn-mini-ghost" href="index.html">← Back to Notes</a>
+        <a class="btn-mini" href="../index.html#work">Projects</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer" style="padding-top: 50px;">
+    <div class="container footer-flex">
+      <div class="footer-left">
+        <h4>Milovan Marrder</h4>
+        <p>Data Analyst • Applied Math • Python Engineering</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/MilovanMarrder" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:milovanmarrder@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; <span id="year"></span>. Built with clean code.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

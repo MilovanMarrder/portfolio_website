@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes | Milovan Marrder</title>
+  <meta name="description" content="Notes by Milovan Marrder: applied math, modeling, and analytics engineering." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <!-- Simple nav -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="../index.html" class="logo">M.Marrder<span class="dot">.</span></a>
+      <div class="nav-links">
+        <a href="../index.html#work">Projects</a>
+        <a href="../index.html#philosophy">Philosophy</a>
+        <a href="../index.html#notes" class="btn-primary">
+          Notes <i data-lucide="arrow-up-right" class="icon-sm"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" style="padding: 80px 0 40px;">
+    <div class="container">
+      <div class="code-badge"><span class="blink">></span> notes_index = True</div>
+      <h1 style="font-size: 2.6rem; margin-bottom: 14px;">Notes</h1>
+      <p class="hero-subtitle" style="margin-bottom: 0;">
+        Applied mathematics, modeling habits, and decision-ready analytics. Short write-ups with practical intent.
+      </p>
+    </div>
+  </header>
+
+  <section class="section" style="padding-top: 40px;">
+    <div class="container">
+      <div class="notes-list">
+
+        <a class="note-item" href="timeclock-rf-case-study.html">
+          <span class="note-date">Case Study • Applied ML</span>
+          <h3 class="note-title">Random Forest for 24/7 Time-Clock Classification</h3>
+          <p class="note-excerpt">
+            Classifying punch events as IN/OUT/ERROR under rotating schedules. Feature engineering, leakage avoidance, and evaluation by employee groups.
+          </p>
+          <span class="read-more">Read →</span>
+        </a>
+
+        <a class="note-item" href="calculus-ops-optimization.html">
+          <span class="note-date">Applied Calculus</span>
+          <h3 class="note-title">Derivatives for Operational Optimization</h3>
+          <p class="note-excerpt">
+            Marginal analysis and diminishing returns: a simple calculus lens to identify decision-ready inflection points.
+          </p>
+          <span class="read-more">Read →</span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" style="padding-top: 50px;">
+    <div class="container footer-flex">
+      <div class="footer-left">
+        <h4>Milovan Marrder</h4>
+        <p>Data Analyst • Applied Math • Python Engineering</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/MilovanMarrder" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:milovanmarrder@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; <span id="year"></span>. Built with clean code.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Case Study | Timeclock Classification (Random Forest)</title>
+  <meta name="description" content="Case study: Random Forest to classify timeclock punches as IN/OUT/ERROR in 24/7 rotating schedules." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../style.css" />
+
+  <!-- Minimal reading styles (only for posts) -->
+  <style>
+    .post { padding: 40px 0 80px; }
+    .post-header { margin: 30px 0 18px; }
+    .post-title { font-size: 2.4rem; line-height: 1.1; margin-bottom: 10px; }
+    .post-subtitle { color: var(--text-muted); max-width: 860px; }
+    .post-meta { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 6px 10px; font-size: .85rem; color: var(--text-muted);
+      background: #fff;
+    }
+    .content { max-width: 900px; }
+    .content h2 { font-size: 1.5rem; margin: 34px 0 10px; }
+    .content p { color: var(--text-muted); margin-bottom: 14px; }
+    .content ul { margin: 10px 0 18px 18px; color: var(--text-muted); }
+    .content li { margin-bottom: 8px; }
+    .callout {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 16px 18px;
+      background: #fff;
+      margin: 18px 0;
+    }
+    .callout h3 { margin-bottom: 6px; }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 14px 0 22px;
+    }
+    .metric {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+    .metric .k { font-family: var(--font-code); font-size: .75rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; }
+    .metric .v { font-size: 1.2rem; font-weight: 700; margin-top: 6px; }
+    .metric .n { color: var(--text-muted); font-size: .9rem; margin-top: 4px; }
+    pre {
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #0b1220;
+      color: #e5e7eb;
+      margin: 14px 0 18px;
+      font-family: var(--font-code);
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+    .back-row { margin-top: 22px; display: flex; gap: 10px; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="../index.html" class="logo">M.Marrder<span class="dot">.</span></a>
+      <div class="nav-links">
+        <a href="index.html">Notes</a>
+        <a href="../index.html#work">Projects</a>
+        <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" rel="noopener" class="btn-primary">
+          Let’s Connect <i data-lucide="arrow-up-right" class="icon-sm"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="post bg-light">
+    <div class="container content">
+
+      <div class="post-header">
+        <div class="code-badge"><span class="blink">></span> case_study = "timeclock_rf"</div>
+        <h1 class="post-title">Random Forest for 24/7 Time-Clock Classification</h1>
+        <p class="post-subtitle">
+          A machine learning approach to classify time-clock punches as <strong>IN / OUT / ERROR</strong> and support shift inference in
+          complex rotating schedules. The public version uses a synthetic dataset to preserve confidentiality.
+        </p>
+
+        <div class="post-meta">
+          <span class="chip"><i data-lucide="activity" class="icon-xs"></i> 24/7 operations</span>
+          <span class="chip"><i data-lucide="trees" class="icon-xs"></i> Random Forest</span>
+          <span class="chip"><i data-lucide="shield-check" class="icon-xs"></i> Confidential-by-design</span>
+          <span class="chip"><i data-lucide="git-branch" class="icon-xs"></i> Repo: TODO</span>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h3>Why this matters</h3>
+        <p>
+          In rotating-shift environments, raw punch logs can be noisy: duplicates, missing punches, out-of-order events, and role-dependent patterns.
+          Misclassification creates payroll friction and forces manual audits.
+        </p>
+      </div>
+
+      <h2>Problem Statement</h2>
+      <p>
+        Given a sequence of time-clock events per employee, classify each event as:
+        <strong>IN</strong> (start of work), <strong>OUT</strong> (end of work), or <strong>ERROR</strong> (invalid / inconsistent punch).
+      </p>
+      <p>
+        Secondary objective: from cleaned sequences, derive interpretable indicators about shift type (day/night/rotating) and anomaly flags.
+      </p>
+
+      <h2>Constraints</h2>
+      <ul>
+        <li><strong>Confidentiality:</strong> no release of organizational details or raw data.</li>
+        <li><strong>High variability:</strong> multiple roles, 24/7 coverage, and rotating schedules.</li>
+        <li><strong>Evaluation integrity:</strong> avoid data leakage (employee identity memorization).</li>
+      </ul>
+
+      <h2>Data Design (Synthetic Public Version)</h2>
+      <p>
+        The public dataset is generated to emulate real-world patterns:
+      </p>
+      <ul>
+        <li>Day shifts, night shifts, rotating schedules, and long-interval guard patterns.</li>
+        <li>Noise injections: duplicates, missing IN/OUT, short-gap anomalies, out-of-order sequences.</li>
+        <li>Employee-level variability to test generalization.</li>
+      </ul>
+
+      <h2>Feature Engineering</h2>
+      <p>Key features operate at event level, using local sequence context:</p>
+      <ul>
+        <li><code>hour_of_day</code>, <code>day_of_week</code>, <code>is_weekend</code></li>
+        <li><code>delta_prev_minutes</code>, <code>delta_next_minutes</code></li>
+        <li><code>punch_index_in_day</code>, <code>punch_count_day</code></li>
+        <li>Flags: duplicates, too-short gap, too-long gap</li>
+        <li>Rolling stats: mean/median delta in last k punches</li>
+      </ul>
+
+      <h2>Model</h2>
+      <p>
+        I used a <strong>Random Forest</strong> for its ability to capture non-linear interactions and provide practical interpretability
+        through feature importance.
+      </p>
+
+      <div class="callout">
+        <h3>Leakage prevention</h3>
+        <p>
+          Punch data is highly employee-specific. To avoid “memorizing employees”, evaluation uses <strong>GroupKFold by employee</strong>
+          (train/test splits never share employees).
+        </p>
+      </div>
+
+      <h2>Evaluation</h2>
+      <div class="metric-grid">
+        <div class="metric">
+          <div class="k">Macro F1</div>
+          <div class="v">TODO</div>
+          <div class="n">Balanced across IN/OUT/ERROR</div>
+        </div>
+        <div class="metric">
+          <div class="k">ERROR Precision</div>
+          <div class="v">TODO</div>
+          <div class="n">False positives are costly</div>
+        </div>
+        <div class="metric">
+          <div class="k">IN↔OUT Confusion</div>
+          <div class="v">TODO</div>
+          <div class="n">Common failure mode in night shifts</div>
+        </div>
+      </div>
+
+      <p>
+        In production contexts, the priority is to minimize false “valid” classifications for errors,
+        and to surface uncertain cases for review.
+      </p>
+
+      <h2>Implementation Sketch</h2>
+      <pre>
+# Pseudocode outline
+X = build_features(punch_events)
+y = labels  # IN / OUT / ERROR
+
+cv = GroupKFold(n_splits=5)  # groups = employee_id
+model = RandomForestClassifier(
+    n_estimators=400,
+    max_depth=None,
+    class_weight="balanced",
+    random_state=42
+)
+
+scores = cross_validate(model, X, y, cv=cv, groups=employee_id,
+                        scoring=["f1_macro","precision_macro","recall_macro"])
+      </pre>
+
+      <h2>Shift Inference Layer (Post-Processing)</h2>
+      <p>
+        Once events are classified and cleaned, shift indicators can be derived:
+      </p>
+      <ul>
+        <li>Estimated start time distributions (day vs night patterns)</li>
+        <li>Shift duration statistics and anomalies</li>
+        <li>Rotating schedule detection via weekly variance</li>
+      </ul>
+
+      <h2>Operational Value</h2>
+      <ul>
+        <li>Reduces manual audit burden by filtering obvious errors.</li>
+        <li>Improves payroll consistency under shift complexity.</li>
+        <li>Creates reusable, explainable rules for edge cases.</li>
+      </ul>
+
+      <div class="callout">
+        <h3>Next Iterations</h3>
+        <ul>
+          <li>Calibrated probabilities + “review threshold” policy.</li>
+          <li>Sequence models comparison (HMM / CRF / LSTM) as research.</li>
+          <li>Role-aware features (if available) with careful privacy design.</li>
+        </ul>
+      </div>
+
+      <div class="back-row">
+        <a class="btn-mini btn-mini-ghost" href="index.html">← Back to Notes</a>
+        <a class="btn-mini" href="../index.html#work">Projects</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="footer" style="padding-top: 50px;">
+    <div class="container footer-flex">
+      <div class="footer-left">
+        <h4>Milovan Marrder</h4>
+        <p>Data Analyst • Applied Math • Python Engineering</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/MilovanMarrder" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/milovanmarrder/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:milovanmarrder@gmail.com">Email</a>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; <span id="year"></span>. Built with clean code.</p>
+    </div>
+  </footer>
+
+  <script src="../script.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>
