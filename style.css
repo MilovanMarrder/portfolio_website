@@ -179,3 +179,41 @@ ul { list-style: none; }
     .nav-links { display: none; } /* Simplificado para móvil */
     .footer-flex { flex-direction: column; gap: 32px; }
 }
+
+.philosophy-layout {
+    display: flex;
+    gap: 3rem;
+    align-items: flex-start;
+}
+
+.about-image-wrapper {
+    flex: 0 0 300px; /* Ancho fijo para la imagen */
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cards-stack {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Responsive: en móviles las cards van abajo */
+@media (max-width: 768px) {
+    .philosophy-layout {
+        flex-direction: column;
+    }
+    
+    .about-image-wrapper {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
